@@ -1,0 +1,2 @@
+run='mcs -unsafe -out:bitWise.exe bitWise.cs ; mono bitWise.exe'
+language = "csharp"
