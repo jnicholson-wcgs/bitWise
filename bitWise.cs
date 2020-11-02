@@ -225,6 +225,14 @@ public static uint network (uint ip, uint netmask) {
         Console.WriteLine ("host(): ({0:X}, {1:X} expected {2:X}, got {3:x}", t.d, t.m, t.e, expected);
     }
 
+    foreach (var t in IPHosts) {
+      count++;
+      if ((expected = network (t.d, t.m)) == (t.d & t.m))
+        score++;
+      else 
+        Console.WriteLine ("network(): ({0:X}, {1:X} expected {2:X}, got {3:x}", t.d, t.m, (t.d & t.m), expected);
+    }
+
     testIP [] IPAddresses = {
       new testIP (0xC0A80001, "192.168.0.1"),
       new testIP (0xC0A80025, "192.168.0.37")
